@@ -35,11 +35,11 @@ jobs:
       rvm: 2.5.7
       stage: spec
     -
-      env: DEPLOY_TO_FORGE=yes
+      env: DEPLOY_TO_FORGE=no
       stage: deploy
 branches:
   only:
-    - main
+    - master
     - /^v\d/
 notifications:
   email: false
