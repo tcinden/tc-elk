@@ -8,11 +8,10 @@ class elk::filebeat {
   include elastic_stack::repo
 
   package{'filebeat':
-    eusure => present,
+    ensure => present,
   }
   service{'filebeat':
     ensure  => running,
     enable  => true,
-    require => package['filebeat'],
+    require => Package['filebeat'],
   }
-}
