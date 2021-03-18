@@ -15,15 +15,17 @@ class elk {
 
   include ::java
   class { 'elasticsearch':
-    jvm_options => ['-Xms256m','-Xmx256m']  
+    jvm_options => ['-Xms256m','-Xmx256m']
   }
   elasticsearch::instance { 'es-01': }
 
-  class {'kibana': 
+  class {'kibana':
     config => {
       'server.host' => '0.0.0.0'
     }
   }
 
+
   include elk::filebeat
 }
+
