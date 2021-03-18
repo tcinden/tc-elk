@@ -6,7 +6,9 @@
 #   include elk
 ##elk/manifests/init.pp
 class elk {
-  class {'logstash':}
+  class {'logstash':
+    jvm_options => ['']
+  }
   logstash::plugin {'logstash-input-beats':}
   logstash::configfile{'beats':
     source => 'puppet:///modules/elk/beats.conf',
@@ -15,7 +17,7 @@ class elk {
 
   include ::java
   class { 'elasticsearch':
-    jvm_options => ['-Xms256m','-Xmx256m']
+    jvm_options => ['-Xms256m','-Xmx2g']
   }
   elasticsearch::instance { 'es-01': }
 
