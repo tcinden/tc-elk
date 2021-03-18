@@ -15,3 +15,4 @@ class elk::filebeat {
     enable  => true,
     require => Package['filebeat'],
   }
+}
