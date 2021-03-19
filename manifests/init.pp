@@ -14,9 +14,11 @@ class elk {
 
 
   include ::java
-  class { 'elasticsearch': }
-#  jvm_options => ['-Xms256m','-Xmx256m']
-  
+  class { 'elasticsearch':
+    ensure => 'absent'
+  }
+
+
   class {'kibana':
     config => {
       'server.host' => '0.0.0.0'
