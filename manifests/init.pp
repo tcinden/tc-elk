@@ -17,7 +17,6 @@ class elk {
   class { 'elasticsearch':
     jvm_options => ['-Xms256m','-Xmx256m']
   }
-  ##elasticsearch::instance { 'es-01': }
 
   class {'kibana':
     config => {
