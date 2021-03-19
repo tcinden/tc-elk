@@ -14,9 +14,7 @@ class elk {
 
 
   include ::java
-  class { 'elasticsearch':
-    ensure => 'absent'
-  }
+  class { 'elasticsearch':  }
 
 
   class {'kibana':
