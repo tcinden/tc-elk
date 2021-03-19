@@ -7,7 +7,7 @@
 ##elk/manifests/init.pp
 class elk {
   class {'logstash':
-    jvm_options => ["'UseParNewGC' => '-XX:-UseParNewGC'"]
+    jvm_options => ['-XX:-UseParNewGC','-Xms256m','-Xmx256m']
   }
   logstash::plugin {'logstash-input-beats':}
   logstash::configfile{'beats':
