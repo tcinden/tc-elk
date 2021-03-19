@@ -6,9 +6,7 @@
 #   include elk
 ##elk/manifests/init.pp
 class elk {
-  class {'logstash':
-    jvm_options => ['-XX:-UseParNewGC','-Xms256m','-Xmx256m']
-  }
+  class {'logstash':}
   logstash::plugin {'logstash-input-beats':}
   logstash::configfile{'beats':
     source => 'puppet:///modules/elk/beats.conf',
@@ -17,7 +15,7 @@ class elk {
 
   include ::java
   class { 'elasticsearch':
-    jvm_options => ['-Xms256m','-Xmx2g']
+    jvm_options => ['-Xms256m','-Xmx256m']
   }
   elasticsearch::instance { 'es-01': }
 
