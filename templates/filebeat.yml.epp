@@ -5,7 +5,7 @@ filebeat.inputs:
   enabled: true
   paths:
   <% $p['paths'].each |$path| { -%>
-  - "<%= $path %>"
+    - "<%= $path %>"
   <% } -%>
   json.keys_under_root: <%= $p['json_keys_under_root'] %>
 <% } -%>
